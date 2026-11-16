@@ -1,5 +1,7 @@
 // Edit bakery information, products, reviews, and photography here.
 // Details below come from the supplied brief; confirm them before public launch.
+import { products } from './products.js';
+
 export const business = {
   name: 'Munasinghe Ceylon Biscuits & Cake',
   shortName: 'Munasinghe Ceylon',
@@ -30,29 +32,7 @@ export const business = {
       'Whether it’s a treat for yourself or something to share, we’d love to hear from you. Get in touch to explore your options and arrange takeaway or delivery.',
     ],
   },
-  products: [
-    {
-      id: 'butter-cookies',
-      name: 'Butter Cookies',
-      category: 'A little everyday joy',
-      description: 'For tea breaks, catch-ups, and those lovely just-because moments. A little treat worth making time for.',
-      image: 'cookies',
-    },
-    {
-      id: 'pineapple-cake',
-      name: 'Pineapple Cake',
-      category: 'A slice of happiness',
-      description: 'Bring a little sweetness to the table. Ask us about our pineapple cake options for your next get-together.',
-      image: 'pineapple',
-    },
-    {
-      id: 'cupcakes',
-      name: 'Cupcakes',
-      category: 'Small treats, sweet moments',
-      description: 'A little cake for a little celebration. Explore the available options for sharing, gifting, or enjoying yourself.',
-      image: 'cupcakes',
-    },
-  ],
+  products,
   reviews: [
     { name: 'Kanishka Jayaweera', initials: 'KJ', text: 'Excellent quality and absolutely delicious.' },
     { name: 'Gihan Munasinghe', initials: 'GM', text: 'Good quality and nice taste cookie and cake in kalutara' },
@@ -63,7 +43,7 @@ export const business = {
     { title: 'Make it a sweet day', description: 'Arrange takeaway or delivery directly with the bakery.', icon: 'bag' },
   ],
   imagery: {
-    disclosure: 'Illustrative images, not actual bakery products. Message us for current product photos.',
+    disclosure: 'Photos of our bakery’s treats. Message us to confirm current options and availability.',
     credit: 'AI-generated illustrative placeholders created for this website. They do not depict the bakery, its premises, or its actual products.',
     photos: {
       hero: { src: '/images/hero.webp', width: 1536, height: 1024, alt: 'Illustrative scene of golden butter cookies and a cream-topped pineapple cake on a warm wooden table.' },
@@ -82,7 +62,7 @@ export const business = {
 
 export function whatsappUrl(productName) {
   const message = productName
-    ? `Hello! I would like to ask about your ${productName}. Could you share the available options and prices?`
+    ? `Hello! I’m interested in your ${productName}. Could you please share the price, available sizes or quantities, and availability?`
     : business.defaultMessage;
   return `${business.whatsapp}?text=${encodeURIComponent(message)}`;
 }

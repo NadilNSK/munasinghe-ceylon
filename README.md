@@ -25,7 +25,7 @@ Deploy the generated `dist/` directory to a static host. The Sites identity is s
 
 ## Edit the bakery information
 
-`src/data/business.js` is the source of truth for the business name, address, contact details, services, products, reviews, rating, imagery, and SEO metadata. Vite generates the HTML title, description, social tags, canonical URL, and Bakery structured data from this configuration. Rebuild after editing it. Update `seo.siteUrl` when changing domains.
+`src/data/business.js` holds the business name, address, contact details, services, reviews, rating, and SEO metadata. Its product collection is imported from the editable `src/data/products.js` array, which holds all six products, descriptions, photo paths, alt text, dimensions, and crop positions. Vite generates the HTML title, description, social tags, canonical URL, and Bakery structured data from the business configuration. Rebuild after editing it. Update `seo.siteUrl` when changing domains.
 
 The supplied business details are:
 
@@ -33,7 +33,7 @@ The supplied business details are:
 - Susiri Niwasa, Elagawatta, Maggona, Sri Lanka.
 - Phone: 072 400 9414. Telephone and WhatsApp: +94 72 400 9414.
 - Takeaway and delivery.
-- Butter Cookies, Pineapple Cake, and Cupcakes.
+- Butter Cookies, Pineapple Cake, Cupcakes, Chocolate Cake, Butter Cake, and Ribbon Cake, in that display order.
 - Supplied Google listing rating: 5.0 / 5 from 6 reviews. The two provided excerpts are used verbatim. The rating is not fetched live.
 
 No product prices, stock status, ingredients, delivery areas, hours, history, or additional products have been invented. The incomplete closing-time information is intentionally omitted.
@@ -42,18 +42,21 @@ No product prices, stock status, ingredients, delivery areas, hours, history, or
 
 1. Confirm the business spelling, address, phone/WhatsApp destination, takeaway and delivery arrangements, and current product range with the bakery.
 2. Verify the Google listing rating, count, reviewer attribution, and exact review excerpts. Adjust the configuration as the rating changes.
-3. Replace the illustrative images with approved photographs of the bakery’s actual products. Confirm product appearance and photo usage permission. Until then, keep the visible disclosure and illustrative alt text.
+3. Review the supplied product photographs and their enhanced copies. Hero and about imagery remain illustrative; replace those separately with approved bakery photography if desired, keeping their existing disclosure until then.
 4. Confirm the Maps business search finds the intended location. This site uses the supplied business name and address and does not guess coordinates or embed an unverified map.
 5. Confirm the final domain in `seo.siteUrl`, preview the social sharing image, and review the site on the devices your customers use.
 
 ## Images and fonts
 
-All four images were created for this project with the built-in image-generation tool. They are clearly identified as illustrative placeholders on the website, not actual product or premises photographs. No third-party stock photography is used.
+The six Our Treats cards use the actual photographs supplied by the user, retouched with the built-in image-editing tool and optimized locally. Their original 194 × 252 JPEG files are preserved byte-for-byte in `assets/product-photos/originals/`, with hashes in `assets/product-photos/sources.json`. Enhanced copies and complete prompts are documented in `assets/product-photos/README.md`. WebP display assets are capped at 388 × 504, with smaller alternatives; clicking a photo opens its complete enhanced image in a keyboard-accessible lightbox. Each circular arrow independently opens its product’s WhatsApp enquiry.
+
+The hero and about images remain the original generated illustrative placeholders. No third-party stock photography is used.
 
 - Original generated PNGs: `assets/originals/`.
 - Full prompt set: `assets/IMAGE-PROMPTS.md`.
 - Responsive WebP images and JPEG social sharing image: `public/images/`.
 - Regenerate optimized files with `node scripts/prepare-assets.mjs` after replacing the original files. The script also copies local fonts from their npm packages.
+- Regenerate the six actual product photo assets with `node scripts/prepare-product-assets.mjs` from their edited PNG masters. This performs size/format optimization only.
 - Font families: Cormorant Garamond and DM Sans, distributed under the SIL Open Font License. License files are included in `public/fonts/`.
 
 When using actual bakery photos, also update the alt text, dimensions, disclosure, and credits in the configuration. No image in this site implies a confirmed recipe, ingredient list, or available decoration option.
@@ -62,8 +65,11 @@ When using actual bakery photos, also update the alt text, dimensions, disclosur
 
 ```text
 src/data/business.js       Editable content and contact helpers
+src/data/products.js       Six products and actual photo metadata
 src/components/Header.jsx Sticky header and accessible mobile menu
 src/components/ui.jsx     Brand, buttons, imagery, stars, and text links
+src/components/Treats.jsx  Product cards and native-dialog lightbox
+src/components/treats.css  Treats-only styling and 3/2/1-column layouts
 src/App.jsx               Reusable page sections and scroll reveal
 src/styles.css            Tailwind entry, theme, and responsive styling
 scripts/check-content.mjs Content, asset, and link validation

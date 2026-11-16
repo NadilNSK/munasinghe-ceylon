@@ -1,0 +1,38 @@
+/* Scoped to Our Treats. Existing palette, card typography, and spacing are inherited. */
+#treats .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#treats .product-card { display: flex; flex-direction: column; min-width: 0; }
+#treats .product-media { position: relative; flex: none; }
+#treats .product-image-link { width: 100%; aspect-ratio: 97 / 126; padding: 0; border: 0; text-align: left; cursor: zoom-in; }
+#treats .product-image { object-fit: cover; }
+#treats .product-image-arrow { z-index: 1; transition: transform .2s; }
+#treats .product-image-arrow:hover { transform: translate(2px, -2px); }
+#treats .product-description { flex: 1; }
+#treats .product-number { pointer-events: none; }
+
+#treats .treats-lightbox { position: fixed; inset: 0; margin: auto; width: min(540px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); padding: 24px; border: 1px solid #e5dacc; border-radius: 10px; background: #faf7f0; color: #433023; overflow: auto; box-shadow: 0 20px 70px #36291f40; }
+#treats .treats-lightbox::backdrop { background: #36291fd9; }
+#treats .treats-lightbox-content { min-width: 0; }
+#treats .treats-lightbox-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+#treats .treats-lightbox-header .eyebrow { margin-bottom: 4px; font-size: 8px; }
+#treats .treats-lightbox-header h3 { font-size: 34px; line-height: 1.1; }
+#treats .treats-photo-control { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border: 1px solid #cdbfad; border-radius: 50%; background: #fff9ed; color: #543a2a; transition: background .2s; }
+#treats .treats-photo-control:hover { background: #eee5d6; }
+#treats .treats-lightbox-photo { display: flex; align-items: center; justify-content: center; min-width: 0; }
+#treats .treats-lightbox-photo img { width: auto; height: auto; max-width: min(100%, 388px); max-height: max(100px, calc(100dvh - 245px)); object-fit: contain; border-radius: 7px; }
+#treats .treats-lightbox-navigation { display: flex; align-items: center; justify-content: center; gap: 26px; margin-top: 18px; }
+#treats .treats-lightbox-navigation p { font-size: 11px; color: #75695e; }
+#treats #treats-photo-help { text-align: center; margin-top: 12px; color: #75695e; font-size: 10px; line-height: 1.7; }
+#treats .treats-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #treats .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  #treats .products-grid { grid-template-columns: 1fr; }
+  #treats .treats-lightbox { padding: 18px; }
+  #treats .treats-lightbox-header h3 { font-size: 30px; }
+  #treats #treats-photo-help { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #treats .product-image-arrow:hover { transform: none; }
+}

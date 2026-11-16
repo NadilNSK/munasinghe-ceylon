@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, Cookie, Heart, MapPin, MessageCircle, Navigation, Phone, ShoppingBag, Truck, Wheat } from 'lucide-react';
 import { business, directionsUrl, ratingText, whatsappUrl } from './data/business.js';
 import Header from './components/Header.jsx';
+import Treats from './components/Treats.jsx';
 import { Brand, Button, Eyebrow, Photo, Stars, TextLink, WhatsAppButton, WhatsAppIcon } from './components/ui.jsx';
 
 function useScrollReveal(root) {
@@ -50,29 +51,6 @@ function Hero() {
       <span className="hero-sparkle" aria-hidden="true">✳</span>
     </div>
     <a href="#treats" className="hero-scroll"><span>SCROLL FOR SOMETHING SWEET</span><ArrowDown size={15} aria-hidden="true" /></a>
-  </section>;
-}
-
-function ProductCard({ product, index }) {
-  return <article className="product-card" data-reveal>
-    <a href={whatsappUrl(product.name)} target="_blank" rel="noopener noreferrer" className="product-image-link" aria-label={`Enquire about ${product.name} on WhatsApp`}>
-      <Photo name={product.image} className="product-image" />
-      <span className="product-number" aria-hidden="true">0{index + 1}</span><span className="product-image-arrow"><ArrowUpRight size={21} aria-hidden="true" /></span>
-    </a>
-    <p className="product-category">{product.category}</p>
-    <h3>{product.name}</h3>
-    <p className="product-description">{product.description}</p>
-    <a href={whatsappUrl(product.name)} target="_blank" rel="noopener noreferrer" className="product-enquiry" aria-label={`Enquire on WhatsApp about ${product.name}`}><WhatsAppIcon size={18} /><span>Enquire on WhatsApp</span><ArrowUpRight size={17} aria-hidden="true" /></a>
-  </article>;
-}
-
-function Treats() {
-  return <section id="treats" className="treats-section section-space" aria-labelledby="treats-title" tabIndex={-1}>
-    <div className="container">
-      <div className="section-heading-row" data-reveal><div><Eyebrow>Our treats</Eyebrow><h2 id="treats-title">Pick your little <em>happiness.</em></h2></div><p>For a quiet cup of tea.<br />For a table full of your favourite people.</p></div>
-      <div className="products-grid">{business.products.map((product, index) => <ProductCard product={product} index={index} key={product.id} />)}</div>
-      <p className="photo-disclosure">{business.imagery.disclosure}</p>
-    </div>
   </section>;
 }
 

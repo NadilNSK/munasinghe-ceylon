@@ -1,0 +1,59 @@
+{
+  "source": "Six original photographs supplied by the user in this conversation.",
+  "images": [
+    {
+      "product": "pineapple-cake",
+      "original": "assets/product-photos/originals/pineapple-cake-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 29594,
+      "sha256": "958c595011ea0b534623daf7781f6dbfeee4491100d6e75ce386e0fbc242933b"
+    },
+    {
+      "product": "butter-cookies",
+      "original": "assets/product-photos/originals/butter-cookies-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 32895,
+      "sha256": "e2117a1d12ebeddd502e11fa95915ac5062e5267563fd8980cea7e984e1be474"
+    },
+    {
+      "product": "chocolate-cake",
+      "original": "assets/product-photos/originals/chocolate-cake-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 30297,
+      "sha256": "07c2e48f9514152b27de8dafce8f1ede97d502a84ef9489adc31219876a13fb1"
+    },
+    {
+      "product": "butter-cake",
+      "original": "assets/product-photos/originals/butter-cake-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 23906,
+      "sha256": "b20c15d9c525dd2316f130722f4b111fc8e6fc4f0518797bf7dd2176694be785"
+    },
+    {
+      "product": "ribbon-cake",
+      "original": "assets/product-photos/originals/ribbon-cake-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 27345,
+      "sha256": "f4c3fcb952f2e11e9b6e3f160032fac7dc3bc4cd8a2c81f344b7c4a9d0296b1c"
+    },
+    {
+      "product": "cupcakes",
+      "original": "assets/product-photos/originals/cupcakes-original.jpg",
+      "width": 194,
+      "height": 252,
+      "format": "jpeg",
+      "bytes": 31366,
+      "sha256": "13d5cc2d586ca08b9e7bbcbb350307cca6a636ebfec2a6cb035f9ff2618d96d6"
+    }
+  ]
+}
